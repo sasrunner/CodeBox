@@ -108,3 +108,79 @@ data _null_;
     else ncopied+1;
 run;
 ```
+
+#4. Add new member into existing zip file  
+Source: https://blogs.sas.com/content/sasdummy/2016/03/04/add-files-to-a-zip-archive-with-filename-zip/
+
+```sas
+%macro assignFilerefToDataset(_dataset_name);
+    %local outDsName;
+    ods output EngineHost=File;
+    proc contents data=&_dataset_name.;
+    run;
+    proc sql noprint;
+        select cValue1 into: outDsName 
+            from work.file where Label1="Filename";
+    quit;
+    filename data_fn "&outDsName.";
+%mend;
+
+%assignFilerefToDataset(sashelp.class);
+
+/* Use FILENAME ZIP to add a new member -- CLASS */
+/* Put it in the data subfolder */
+filename addfile zip "&projectDir./project.zip" 
+    member='data/class.sas7bdat';
+    
+/* byte-by-byte copy */
+/* "copies" the new file into the ZIP archive */
+data _null_;
+    infile data_fn recfm=n;
+    file addfile recfm=n;
+    input byte $char1. @;
+    put  byte $char1. @;
+run;
+ 
+filename addfile clear;
+    
+/* Use FILENAME ZIP to add a new member -- CARS */
+%assignFilerefToDataset(sashelp.cars);
+
+/* Put it in the data subfolder */
+filename addfile zip "&projectDir./project.zip" member='data/cars.sas7bdat';
+/* byte-by-byte copy */
+/* "copies" the new file into the ZIP archive */
+data _null_;
+    infile data_fn recfm=n;
+    file addfile recfm=n;
+    input byte $char1. @;
+    put  byte $char1. @;
+run;
+ 
+filename addfile clear;
+```
+
+#5. Report contents of zip file  
+Source: https://blogs.sas.com/content/sasdummy/2016/03/04/add-files-to-a-zip-archive-with-filename-zip/
+```sas
+/* Report on the contents of the ZIP file */
+/* Assign a fileref wth the ZIP method */
+filename inzip zip "&projectDir./project.zip";
+/* Read the "members" (files) from the ZIP file */
+data contents(keep=memname);
+    length memname $200;
+    fid=dopen("inzip");
+    if fid=0 then
+        stop;
+    memcount=dnum(fid);
+    do i=1 to memcount;
+        memname=dread(fid,i);
+        output;
+    end;
+    rc=dclose(fid);
+run;
+/* create a report of the ZIP contents */
+title "Files in the ZIP file";
+proc print data=contents noobs N;
+run;
+```
