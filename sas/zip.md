@@ -81,7 +81,7 @@ Source: https://stackoverflow.com/questions/41872561/sas-zipping-folder
 %createZIP(C:\temp, test.zip, C:\temp2)
 ```
 
-#3. fcopy zip method
+#3. fcopy zip method  
 Source: https://communities.sas.com/t5/SAS-Programming/SAS-code-to-zip-entire-directories-and-keep-directory-structure/td-p/713036
 ```sas
 filename dirtree url "https://raw.githubusercontent.com/sasutils/macros/master/dirtree.sas";
