@@ -184,3 +184,56 @@ title "Files in the ZIP file";
 proc print data=contents noobs N;
 run;
 ```
+
+#6. Reading a text file from within a ZIP archive  
+Source: https://communities.sas.com/t5/SAS-Communities-Library/How-to-work-with-ZIP-files-in-SAS-programs/ta-p/964515
+```sas
+filename inzip ZIP "./projects/freddiemac.zip";
+
+data fm;
+  /* Read text file directly from ZIP archive */
+  infile inzip(ri130701_13dn01.txt);
+  input @1 record_type $2. @;
+  /* continue processing */
+run;
+
+filename inzip ZIP "./projects/freddiemac.zip"
+ member="ri130701_13dn01.txt";
+
+data fm;
+  /* Read text file directly from ZIP archive */
+  infile inzip;
+  input @1 record_type $2. @;
+  /* continue processing */
+run;
+```
+
+#7. Working with gzip files  
+Source: https://communities.sas.com/t5/SAS-Communities-Library/How-to-work-with-ZIP-files-in-SAS-programs/ta-p/964515
+```sas
+filename source "&ziproot./dailylog.txt";
+filename tozip ZIP "&ziproot./data/dailylog.txt.gz" GZIP;
+filename tozip2 ZIP "&ziproot./data/dailylog2.txt.gz" GZIP;
+ 
+ 
+/* read and rewrite text */
+data _null_;   
+   infile source;
+   file tozip ;
+   input;
+   put _infile_ ;
+run;
+
+/* OR, use FCOPY */
+data _null_;   
+    rc=fcopy('source','tozip2');
+run;
+
+filename fromzip ZIP "./projects/dailylog_20230821.txt.gz" GZIP;
+data logdata;   
+   /* read directly from compressed file */
+   infile fromzip; 
+   input  date : yymmdd10. time : anydttme. ;
+   format date date9. time timeampm.;
+run;
+```
