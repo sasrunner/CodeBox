@@ -1,6 +1,6 @@
 #1. Nested bar charts  
 Source: https://blogs.sas.com/content/iml/2025/03/31/nested-bar-charts.html  
-<img src="./images/1_nested_bar.png" alt="Nested bar" width="200">
+<img src="./images/1_nested_bar.png" alt="Nested bar" width="300">
 
 ```sas
 data Bars;
