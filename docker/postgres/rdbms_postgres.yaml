@@ -1,0 +1,35 @@
+# docker compose -d rdbms_postgres -f rdbms_postgres.yaml up
+services:
+  db:
+    container_name: postgres
+    image: postgres
+    hostname: postgres
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: test
+      PGDATA: /data/postgres
+    volumes:
+      - postgres:/data/postgres
+    restart: always
+
+  web-app:
+    container_name: pgadmin
+    image: dpage/pgadmin4
+    hostname: pgadmin 
+    depends_on:
+      - db
+    volumes:
+      - pgadmin:/var/lib/pgadmin
+    ports:
+      - "5050:80"
+    environment:
+      PGADMIN_DEFAULT_EMAIL: <pgadmin@pgadmin.org>
+      PGADMIN_DEFAULT_PASSWORD: <password>
+    restart: always
+
+volumes:
+  postgres:
+  pgadmin:
