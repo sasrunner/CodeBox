@@ -1,6 +1,6 @@
 #1. Nested bar charts  
 Source: https://blogs.sas.com/content/iml/2025/03/31/nested-bar-charts.html  
-![Nested bar](./images/1_nested_bar.png =100x)
+![Nested bar](./images/1_nested_bar.png){width=300px}
 ```sas
 data Bars;
     do Year = 2020 to 2022;
