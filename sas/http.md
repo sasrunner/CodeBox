@@ -11,15 +11,19 @@
 
 
 
-|PROC HTTP|cURL |
+|PROC HTTP syntax|cURL syntax|
 |-------- |-----|
 |PROC HTTP URL="target-URI"|     |
-|PROC HTTP METHOD ="\<http-method\>"|     |
+|PROC HTTP METHOD ="\<http-method\>"|-X, --request \<method\>|
 |PROC HTTP \<authentication-type-options\>|     |
-|PROC HTTP \<header-options\>|     |
+|PROC HTTP \<header-options\>|-H, --header \<header/@file\>|
 |PROC HTTP \<web-server-authentication-options\>|     |
 |PROC HTTP \<proxy-server-connection-options\>|     |
-|PROC HTTP \<other-options\>|     |
+|PROC HTTP \<IN=fileref \| FORM(arguments) \| MULTI \<options\> \| "string"\>| -d, --data <data> |
+|PROC HTTP \<OUT=fileref-to-response-data\>| -o, --output \<file\>    |
+|PROC HTTP \<OAUTH_BEARER="token"\>| -H "Authorization: Bearer token"|
+|PROC HTTP \<proxyhost="proxy-host-name" proxyport=proxy-port-number proxyusername="proxy-user-name" proxypassword="proxy-passwd"\>| -x http://proxy.example.com:8080 -U proxy-user-name:proxy-passwd    |
 |\<DEBUG options;\>|     |
 |\<HEADERS "HeaderName"="HeaderValue" \<"HeaderName-n"="HeaderValue-n"\>;\>|     |
-|-------- |-----|
+
+
