@@ -13,13 +13,13 @@
 
 |PROC HTTP|cURL |
 |-------- |-----|
-|URL="target-URI"      |     |
-|< METHOD ="<http-method>"         |     |
-|< authentication-type-options >         |     |
-|<header-options>         |     |
-|<web-server-authentication-options>         |     |
-|<proxy-server-connection-options>         |     |
-|<other-options>         |     |
-|< DEBUG  options;>|     |
-|< HEADERS  "HeaderName"="HeaderValue" < "HeaderName-n"="HeaderValue-n" >;>|     |
+|URL="target-URI"|     |
+|<METHOD ="<http-method>"|     |
+|<authentication-type-options>|     |
+|<header-options>|     |
+|<web-server-authentication-options>|     |
+|<proxy-server-connection-options>|     |
+|<other-options>|     |
+|<DEBUG options;>|     |
+|<HEADERS "HeaderName"="HeaderValue" < "HeaderName-n"="HeaderValue-n">;>|     |
 |-------- |-----|
