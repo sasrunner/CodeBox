@@ -6,4 +6,20 @@
 [blog post: From cURL to PROC HTTP on SAS Viya](https://communities.sas.com/t5/SAS-Communities-Library/From-cURL-to-PROC-HTTP-on-SAS-Viya/ta-p/964762)  
 [paper: The ABCs of PROC HTTP](https://www.sas.com/content/dam/SAS/support/en/sas-global-forum-proceedings/2019/3232-2019.pdf)  
 [paper: REST Just Got Easy with SAS® and PROC HTTP](https://www.sas.com/content/dam/SAS/support/en/sas-global-forum-proceedings/2020/4426-2020.pdf)
+[blog post: Using PROC HTTP 1 - Review of the HTTP Protocol](https://communities.sas.com/t5/SAS-Communities-Library/Using-PROC-HTTP-1-Review-of-the-HTTP-Protocol/ta-p/960340)
+[blog post: Using PROC HTTP 2 - Accessing Internet Information and Debugging](https://communities.sas.com/t5/SAS-Communities-Library/Using-PROC-HTTP-2-Accessing-Internet-Information-and-Debugging/ta-p/964119)  
 
+
+
+|PROC HTTP|cURL |
+|-------- |-----|
+|URL="target-URI"      |     |
+|< METHOD ="<http-method>"         |     |
+|< authentication-type-options >         |     |
+|<header-options>         |     |
+|<web-server-authentication-options>         |     |
+|<proxy-server-connection-options>         |     |
+|<other-options>         |     |
+|< DEBUG  options;>|     |
+|< HEADERS  "HeaderName"="HeaderValue" < "HeaderName-n"="HeaderValue-n" >;>|     |
+|-------- |-----|
