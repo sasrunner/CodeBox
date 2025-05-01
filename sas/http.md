@@ -24,6 +24,7 @@
 |PROC HTTP \<OAUTH_BEARER="token"\>| -H "Authorization: Bearer token"|
 |PROC HTTP \<proxyhost="proxy-host-name" proxyport=proxy-port-number proxyusername="proxy-user-name" proxypassword="proxy-passwd"\>| -x http://proxy.example.com:8080 -U proxy-user-name:proxy-passwd    |
 |\<DEBUG options;\>|     |
-|\<HEADERS "HeaderName"="HeaderValue" \<"HeaderName-n"="HeaderValue-n"\>;\>|     |
+|\<HEADERS "HeaderName"="HeaderValue" \<"HeaderName-n"="HeaderValue-n"\>;\>|-H, --header \<header/@file\>|
+|HEADERS "Authorization"="Bearer token"| -H "Authorization: Bearer token"|
 
 
