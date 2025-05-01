@@ -5,8 +5,8 @@
 [blog post: How to translate your cURL command into SAS code](https://blogs.sas.com/content/sgf/2020/07/30/curl-to-proc-http/)  
 [blog post: From cURL to PROC HTTP on SAS Viya](https://communities.sas.com/t5/SAS-Communities-Library/From-cURL-to-PROC-HTTP-on-SAS-Viya/ta-p/964762)  
 [paper: The ABCs of PROC HTTP](https://www.sas.com/content/dam/SAS/support/en/sas-global-forum-proceedings/2019/3232-2019.pdf)  
-[paper: REST Just Got Easy with SAS® and PROC HTTP](https://www.sas.com/content/dam/SAS/support/en/sas-global-forum-proceedings/2020/4426-2020.pdf)
-[blog post: Using PROC HTTP 1 - Review of the HTTP Protocol](https://communities.sas.com/t5/SAS-Communities-Library/Using-PROC-HTTP-1-Review-of-the-HTTP-Protocol/ta-p/960340)
+[paper: REST Just Got Easy with SAS® and PROC HTTP](https://www.sas.com/content/dam/SAS/support/en/sas-global-forum-proceedings/2020/4426-2020.pdf)  
+[blog post: Using PROC HTTP 1 - Review of the HTTP Protocol](https://communities.sas.com/t5/SAS-Communities-Library/Using-PROC-HTTP-1-Review-of-the-HTTP-Protocol/ta-p/960340)  
 [blog post: Using PROC HTTP 2 - Accessing Internet Information and Debugging](https://communities.sas.com/t5/SAS-Communities-Library/Using-PROC-HTTP-2-Accessing-Internet-Information-and-Debugging/ta-p/964119)  
 
 
@@ -22,9 +22,9 @@
 |PROC HTTP \<IN=fileref \| FORM(arguments) \| MULTI \<options\> \| "string"\>| -d, --data <data> |
 |PROC HTTP \<OUT=fileref-to-response-data\>| -o, --output \<file\>    |
 |PROC HTTP \<OAUTH_BEARER="token"\>| -H "Authorization: Bearer token"|
-|PROC HTTP \<proxyhost="proxy-host-name" proxyport=proxy-port-number proxyusername="proxy-user-name" proxypassword="proxy-passwd"\>| -x http://proxy.example.com:8080 -U proxy-user-name:proxy-passwd    |
-|\<DEBUG options;\>|     |
+|PROC HTTP \<proxyhost="proxy-host-name"<br>proxyport=proxy-port-number<br>proxyusername="proxy-user-name"<br>proxypassword="proxy-passwd"\>| -x http://proxy.example.com:8080<br>-U proxy-user-name:proxy-passwd    |
 |\<HEADERS "HeaderName"="HeaderValue" \<"HeaderName-n"="HeaderValue-n"\>;\>|-H, --header \<header/@file\>|
 |HEADERS "Authorization"="Bearer token"| -H "Authorization: Bearer token"|
+|\<DEBUG options;\><br>NOTE: Always use OUTPUT_TEXT when LEVEL=3 is specified.|     |
 
 
