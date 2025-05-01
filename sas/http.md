@@ -16,10 +16,10 @@
 |PROC HTTP URL="target-URI"|     |
 |PROC HTTP METHOD ="\<http-method\>"|     |
 |PROC HTTP \<authentication-type-options\>|     |
-|PROC HTTP \<header-options\>'|     |
+|PROC HTTP \<header-options\>|     |
 |PROC HTTP \<web-server-authentication-options\>|     |
 |PROC HTTP \<proxy-server-connection-options\>|     |
 |PROC HTTP \<other-options\>|     |
 |\<DEBUG options;\>|     |
-|\<HEADERS "HeaderName"="HeaderValue" \<"HeaderName-n"="HeaderValue-n"\>\>;|     |
+|\<HEADERS "HeaderName"="HeaderValue" \<"HeaderName-n"="HeaderValue-n"\>;\>|     |
 |-------- |-----|
