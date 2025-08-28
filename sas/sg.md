@@ -23,3 +23,21 @@ proc sgplot data=Bars;
     vbarbasic Year / response=Sales group=Quarter groupdisplay=cluster clusterwidth=0.8;
 run;
 ```
+
+#2. bar chart with confidence limits  
+Source: https://support.sas.com/kb/69/822.html  
+<img src="https://support.sas.com/kb/69/addl/fusion_69822_1_barchartlimits.png" alt="Nested bar" width="300">  
+
+```sas
+proc sgplot data=carsMean;
+    /* Generate a horizontal bar chart for average mileage in city driving 
+       using calculated limits */
+    hbarparm category=type response=mean / 
+        fillattrs=(color=cxa6bddb)
+        limitlower=lclm limitupper=uclm
+        limitattrs=(color=black);
+        
+    yaxis display=(nolabel) grid;
+    xaxis display=(nolabel);
+run;
+```
