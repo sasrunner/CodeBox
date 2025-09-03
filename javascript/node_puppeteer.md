@@ -39,13 +39,15 @@ const browser = await puppeteer.connect({
 const pages = await browser.pages();
 console.log('Pages currently open:', pages.map(p => p.url()));
 
-let page = pages.find(p => p.url().includes('cbc'));
+const url = 'https://www.google.com'
+
+let page = pages.find(p => p.url().includes('https://www.google.com/'));
 
 if (page) {
     console.log('Found existing CBC page:', page.url());
     await page.bringToFront();   // optional: focus it
 } else {
-    console.log('No CBC page open, creating one...');
+    console.log('No page open, creating new one...');
     page = await browser.newPage();
     await page.goto('https://www.cbc.ca/news', { waitUntil: 'domcontentloaded', timeout: 90_000 });
 }
